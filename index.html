@@ -11,10 +11,12 @@
 </head>
 
 <body>
+    <br><br>
     <div class="container-fluid">
         <header class="row">
             <h1 class="col-12 text-center">Aplicación para calcular promedios</h1>
         </header>
+        <br><br>
         <div id="bodyPage" class="row justify-content-center">
             <div class="col-8">
                 <div class="row">
@@ -63,6 +65,61 @@
             </div>
         </div>
     </div>
+    <br><br>
+    <div id="modalFormulario" class="modalContent modalClosed">
+        <div class="container-fluid">
+            <button type="button" class="btn-close" aria-label="Close"></button>
+            <div class="row">
+                <h2 class="col-12 text-center">Título del formulario</h2>
+            </div>
+            <div class="row justify-content-center">
+                <form class="col-8">
+                    <div class="mb-3">
+                        <label for="materiaInput" class="form-label">Materia</label>
+                        <input type="text" class="form-control" id="materiaInput" name="materiaInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="notaInput" class="form-label">Nota</label>
+                        <input type="text" class="form-control" id="notaInput" name="notaInput">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-secondary">Cancelar</button>
+                            <button type="submit" class="btn btn-success">Aceptar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalPromedio" class="modalContent modalClosed">
+        <div class="container-fluid">
+            <button type="button" class="btn-close" aria-label="Close"></button>
+            <div class="row">
+                <h2 class="col-12 text-center">Promedio Calculado</h2>
+            </div>
+            <br>
+            <div class="row justify-content-center">
+                <div class="col-8 text-center">
+                    El promedio calculado es:
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8 text-center">
+                    4
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-center">
+                <div class="col-4 text-center">
+                    <button type="button" class="btn btn-success">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
