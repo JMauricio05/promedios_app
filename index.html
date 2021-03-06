@@ -22,11 +22,11 @@
                 <div class="row">
                     <h2 class="col-8">Listado de Materias</h2>
                     <div class="col-4 text-end">
-                        <button type="button" class="btn btn-primary">Registrar Materias</button>
+                        <button id="btnRegistrar" type="button" class="btn btn-primary">Registrar Materias</button>
                     </div>
                 </div>
                 <div class="row">
-                    <table class="col-12 table table-striped table-hover">
+                    <table id="tablaMaterias" class="col-12 table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th class="thNo">#</th>
@@ -39,27 +39,12 @@
                             <tr>
                                 <td colspan="4" class="text-center">No hay materias registradas</td>
                             </tr>
-                            <!--
-                            <tr>
-                                <td>1</td>
-                                <td>Programación Avanzada</td>
-                                <td>4</td>
-                                <td>
-                                    <button type="button" class="btn btn-primary">
-                                        <img src="resources/icons/edit.svg" alt="Editar" title="Editar">
-                                    </button>
-                                    <button type="button" class="btn btn-danger">
-                                        <img src="resources/icons/delete.svg" alt="Eliminar" title="Eliminar">
-                                    </button>
-                                </td>
-                            </tr>
-                            -->
                         </tbody>
                     </table>
                 </div>
                 <div class="row">
                     <div class="col-12 text-end">
-                        <button type="button" class="btn btn-primary">Calcular Promedio</button>
+                        <button id="btnCalcular" type="button" class="btn btn-primary">Calcular Promedio</button>
                     </div>
                 </div>
             </div>
@@ -68,23 +53,24 @@
     <br><br>
     <div id="modalFormulario" class="modalContent modalClosed">
         <div class="container-fluid">
-            <button type="button" class="btn-close" aria-label="Close"></button>
+            <button type="button" class="btn-close" aria-label="Close" onclick="closeModal('modalFormulario')"></button>
             <div class="row">
-                <h2 class="col-12 text-center">Título del formulario</h2>
+                <h2 id="tituloModalFormulario" class="col-12 text-center">Título del formulario</h2>
             </div>
             <div class="row justify-content-center">
-                <form class="col-8">
+                <form id="formMateria" class="col-8">
                     <div class="mb-3">
                         <label for="materiaInput" class="form-label">Materia</label>
-                        <input type="text" class="form-control" id="materiaInput" name="materiaInput">
+                        <input type="text" class="form-control" id="materiaInput" name="materiaInput" required>
                     </div>
                     <div class="mb-3">
                         <label for="notaInput" class="form-label">Nota</label>
-                        <input type="text" class="form-control" id="notaInput" name="notaInput">
+                        <input type="text" class="form-control" id="notaInput" name="notaInput" required>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-12 text-center">
-                            <button type="button" class="btn btn-secondary">Cancelar</button>
+                            <button type="button" class="btn btn-secondary"
+                                onclick="closeModal('modalFormulario')">Cancelar</button>
                             <button type="submit" class="btn btn-success">Aceptar</button>
                         </div>
                     </div>
@@ -95,7 +81,7 @@
 
     <div id="modalPromedio" class="modalContent modalClosed">
         <div class="container-fluid">
-            <button type="button" class="btn-close" aria-label="Close"></button>
+            <button type="button" class="btn-close" aria-label="Close" onclick="closeModal('modalPromedio')"></button>
             <div class="row">
                 <h2 class="col-12 text-center">Promedio Calculado</h2>
             </div>
@@ -113,7 +99,7 @@
             <br>
             <div class="row justify-content-center">
                 <div class="col-4 text-center">
-                    <button type="button" class="btn btn-success">Aceptar</button>
+                    <button type="button" class="btn btn-success" onclick="closeModal('modalPromedio')">Aceptar</button>
                 </div>
             </div>
         </div>
