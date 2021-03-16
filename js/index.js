@@ -36,7 +36,7 @@ function addMateria() {
     indexElementoSeleccionado = null;
     let nombre = document.getElementById('materiaInput').value;
     let nota = document.getElementById('notaInput').value;
-    let materia = { 'nombre': nombre, 'nota': nota };
+    let materia = { 'nombre': nombre, 'nota': Number(nota) };
     materias.push(materia);
 
     let tbodyMaterias = document.getElementById('tablaMaterias').getElementsByTagName('tbody')[0];
@@ -85,6 +85,22 @@ function onClickEliminar(index) {
     actualizarHtmlTbody();
 }
 
+function validarInputNotaNumero() {
+    let nota = document.getElementById('notaInput').value;
+    var patt = /[a-zA-Z]/;
+    let estado = patt.test(nota);
+    if (estado) {
+        return false;
+    }
+    /*
+    let valor = Number(nota);
+    if (!valor) {
+        return false;
+    }
+    */
+    return true;
+}
+
 
 document.getElementById('btnRegistrar').addEventListener('click', function () {
     document.getElementById('modalFormulario').classList.remove('modalClosed');
@@ -98,15 +114,27 @@ document.getElementById('btnRegistrar').addEventListener('click', function () {
 
 document.getElementById('btnCalcular').addEventListener('click', function () {
     document.getElementById('modalPromedio').classList.remove('modalClosed');
+
+    let sumaElemento = 0;
+    materias.forEach(value => {
+        sumaElemento += value.nota;
+    });
+    document.getElementById('resultadoPromedio').innerText = sumaElemento / materias.length;
 });
 
 document.getElementById('formMateria').addEventListener('submit', function (event) {
     event.preventDefault();
-    if (operacion == 'registrar') {
-        addMateria();
-    } else {
-        editMateria();
+    try {
+        if (!validarInputNotaNumero()) {
+            alert('En el campo nota debe ingresar solo números');
+        } else if (operacion == 'registrar') {
+            addMateria();
+            closeModal('modalFormulario');
+        } else {
+            editMateria();
+            closeModal('modalFormulario');
+        }
+    } catch (error) {
+        console.log("Se presentó un error en el código");
     }
-
-    closeModal('modalFormulario');
 });
